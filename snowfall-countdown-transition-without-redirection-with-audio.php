@@ -194,7 +194,8 @@
             display: flex;
             justify-content: center;
             align-items: flex-end;
-            padding: 20px 10px;
+            padding: 0 10px;
+            padding-bottom: 200px !important;
             z-index: 5;
             display: none;
         }
@@ -236,7 +237,7 @@
         </div>
         
         <div class="instructions">
-            <p>Click the Play Ginan button to start the countdown with audio. Press Spacebar for quick start.</p>
+            <p>Click the Play Ginan button to start the countdown with audio. Press speaker icon to stop the audio.</p>
         </div>
     </div>
 

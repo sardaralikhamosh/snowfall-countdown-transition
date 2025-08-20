@@ -192,7 +192,7 @@
 
         <!-- Launch Button -->
         <button id="launchBtn" class="launch-button">
-            <span id="btnText">Launch</span>
+            <span id="btnText">Play Ginan</span>
             <span class="pulse-layer layer1"></span>
             <span class="pulse-layer layer2"></span>
             <span class="pulse-layer layer3"></span>
@@ -210,7 +210,7 @@
         </div>
         
         <div class="instructions">
-            <p>Click the Launch button to start the countdown with audio. Press Spacebar for quick start.</p>
+            <p>Click the Play Ginan button to start the countdown with audio. Press Spacebar for quick start.</p>
         </div>
     </div>
 
@@ -345,7 +345,7 @@
         }
         
         document.addEventListener('keydown', function(event) {
-            // Check if the spacebar is pressed and launch button is still visible
+            // Check if the spacebar is pressed and Play Ginan button is still visible
             if (event.code === 'Space' && launchBtn.style.display !== 'none') {
                 event.preventDefault(); // Prevent default spacebar scrolling
                 launchBtn.click();

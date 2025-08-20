@@ -1,5 +1,5 @@
 <div class="elementor-element elementor-element-b0f96d1 elementor-widget elementor-widget-html" data-id="b0f96d1" data-element_type="widget" data-widget_type="html.default">
-  <div id="landing-page" style="height: 100vh; display: flex; justify-content: center; align-items: center; background: url('https://blueviolet-mantis-359437.hostingersite.com/wp-content/uploads/2025/08/yasi-sir-data-3.jpg') center/cover no-repeat; overflow: hidden; font-family: 'Arial', sans-serif; position: relative;">
+  <div id="landing-page" style="height: 100vh; display: flex; justify-content: center; align-items: center; background: url('https://hamqadam.com/wp-content/uploads/2025/08/yasi-sir-data-3.jpg') center/cover no-repeat; overflow: hidden; font-family: 'Arial', sans-serif; position: relative;">
 
     <!-- Gradient overlay (hidden at first) -->
     <div id="overlay" style="position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.8)); opacity: 0; pointer-events: none; transition: opacity 0.6s;"></div>
@@ -26,7 +26,7 @@
       height: 225px; /* increased */
       border-radius: 50%;
       border: none;
-      background-color: #135A32 !important;
+      background-color: #1C5A34 !important;
       color: #fff;
       font-size: 34px;
       margin-top: 60px;
@@ -136,8 +136,8 @@
     const landingPage = document.getElementById("landing-page");
     
     // Background images
-    const initialBackground = 'https://blueviolet-mantis-359437.hostingersite.com/wp-content/uploads/2025/08/yasi-sir-data-3.jpg';
-    const snowBackground = 'https://blueviolet-mantis-359437.hostingersite.com/wp-content/uploads/2025/08/yasi-sir-data-2.jpg';
+    const initialBackground = 'https://hamqadam.com/wp-content/uploads/2025/08/yasi-sir-data-3.jpg';
+    const snowBackground = 'https://hamqadam.com/wp-content/uploads/2025/08/yasi-sir-data-2.jpg';
 
     launchBtn.addEventListener("click", () => {
       let counter = 5;
@@ -150,27 +150,22 @@
         counter--;
         if (counter > 0) {
           btnText.textContent = counter;
-          
-          // Change background image when countdown reaches 1
-          if (counter === 1) {
-            landingPage.style.backgroundImage = `url('${snowBackground}')`;
-          }
-          
         } else {
           clearInterval(interval);
           launchBtn.style.display = "none";
 
+          // Change background image immediately when countdown finishes
+          landingPage.style.backgroundImage = `url('${snowBackground}')`;
+          
           // Show background overlay
           overlay.style.opacity = "1";
           
-          // Show snowflakes
+          // Show snowflakes immediately
           snowflakesContainer.style.display = "block";
           createSnowflakes();
 
           // Trigger confetti
           triggerConfetti();
-          
-          // Removed the redirection code
         }
       }, 1000);
     });

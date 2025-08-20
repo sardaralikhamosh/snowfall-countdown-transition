@@ -237,7 +237,7 @@
         </div>
         
         <div class="instructions">
-            <p>Click the Play Ginan button to start the countdown with audio. Press speaker icon to stop the audio.</p>
+            <p>Click the Play Ginan button to start audio & Press 🔊 in the left cornor to stop the audio.</p>
         </div>
     </div>
 

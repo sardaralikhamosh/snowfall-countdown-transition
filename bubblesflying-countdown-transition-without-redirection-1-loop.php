@@ -37,7 +37,7 @@
             font-size: 34px;
             z-index: 10;
             cursor: pointer;
-            box-shadow: 0 0 25px rgba(19, 90, 50, 0.5);
+            box-shadow: 0 0 25px rgba(19, 90, 50, 1);
             transition: background-color 0.3s;
         }
 

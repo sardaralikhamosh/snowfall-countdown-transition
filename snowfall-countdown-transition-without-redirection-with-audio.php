@@ -22,7 +22,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: url('https://hamqadam.com/wp-content/uploads/2025/08/His-Highness-The-Aga-Khan_PRINT_RF.jpg') center/cover no-repeat;
+            background: url('https://hamqadam.com/wp-content/uploads/2025/08/Aga-Khan-4.jpg') center/cover no-repeat;
             overflow: hidden;
             position: relative;
         }
@@ -225,8 +225,8 @@
         const volumeIcon = document.getElementById("volumeIcon");
         
         // Background images
-        const initialBackground = 'https://hamqadam.com/wp-content/uploads/2025/08/His-Highness-The-Aga-Khan_PRINT_RF.jpg';
-        const snowBackground = 'https://hamqadam.com/wp-content/uploads/2025/08/shsh-rahim-aga-khan.avif';
+        const initialBackground = 'https://hamqadam.com/wp-content/uploads/2025/08/Aga-Khan-4.jpg';
+        const snowBackground = 'https://hamqadam.com/wp-content/uploads/2025/08/aga-khan-v.avif';
 
         // Set initial styles
         confettiContainer.style.position = 'absolute';
@@ -250,7 +250,7 @@
         let backgroundAudio = new Audio();
         backgroundAudio.loop = true;
         // Replace with your actual audio file URL
-        backgroundAudio.src = 'https://hamqadam.com/wp-content/uploads/2025/08/ismaili-ginan-urdu.mp3';
+        backgroundAudio.src = 'https://hamqadam.com/wp-content/uploads/2025/08/urdu-ginan.mpeg.wav';
         backgroundAudio.volume = 0.7; // Set initial volume to 70%
         
         let isMuted = false;

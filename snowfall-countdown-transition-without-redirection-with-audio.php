@@ -22,7 +22,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: url('https://blueviolet-mantis-359437.hostingersite.com/wp-content/uploads/2025/08/yasi-sir-data-3.jpg') center/cover no-repeat;
+            background: url('https://hamqadam.com/wp-content/uploads/2025/08/His-Highness-The-Aga-Khan_PRINT_RF.jpg') center/cover no-repeat;
             overflow: hidden;
             position: relative;
         }
@@ -225,8 +225,8 @@
         const volumeIcon = document.getElementById("volumeIcon");
         
         // Background images
-        const initialBackground = 'https://blueviolet-mantis-359437.hostingersite.com/wp-content/uploads/2025/08/yasi-sir-data-3.jpg';
-        const snowBackground = 'https://blueviolet-mantis-359437.hostingersite.com/wp-content/uploads/2025/08/yasi-sir-data-2.jpg';
+        const initialBackground = 'https://hamqadam.com/wp-content/uploads/2025/08/His-Highness-The-Aga-Khan_PRINT_RF.jpg';
+        const snowBackground = 'https://hamqadam.com/wp-content/uploads/2025/08/shsh-rahim-aga-khan.avif';
 
         // Set initial styles
         confettiContainer.style.position = 'absolute';
@@ -250,7 +250,7 @@
         let backgroundAudio = new Audio();
         backgroundAudio.loop = true;
         // Replace with your actual audio file URL
-        backgroundAudio.src = 'https://cdn.pixabay.com/download/audio/2021/12/03/audio_172d7dec90.mp3?filename=christmas-magic-679.mp3';
+        backgroundAudio.src = 'https://hamqadam.com/wp-content/uploads/2025/08/ismaili-ginan-urdu.mp3';
         backgroundAudio.volume = 0.7; // Set initial volume to 70%
         
         let isMuted = false;

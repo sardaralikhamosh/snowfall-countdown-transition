@@ -21,7 +21,7 @@
     <!-- Audio element (initially hidden) -->
     <audio id="backgroundAudio" loop style="display: none;">
       <!-- Replace with your actual audio file URL -->
-      <source src="https://assets.mixkit.co/music/preview/mixkit-christmas-magic-679.mp3" type="audio/mpeg">
+      <source src="https://soundcloud.com/digicells/jamat-official-burushaski-ginan-ali-rehmat-jan-razii-sardar-ali?si=24be2f3f6c684ff0b3e91a7280f3aeda&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
     

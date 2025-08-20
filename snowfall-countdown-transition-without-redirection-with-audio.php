@@ -45,13 +45,13 @@
             height: 225px;
             border-radius: 50%;
             border: none;
-            background-color: #135A32;
+            background-color: #1C5A34;
             color: #fff;
             font-size: 34px;
             z-index: 10;
             overflow: visible;
             cursor: pointer;
-            box-shadow: 0 0 25px rgba(19, 90, 50, 0.5);
+            box-shadow: 0 0 25px rgba(19, 90, 50, 1);
             transition: transform 0.2s;
         }
 
@@ -148,7 +148,7 @@
         
         #audioControls {
             position: absolute;
-            bottom: 20px;
+            bottom: 90px;
             right: 20px;
             z-index: 100;
             background: rgba(0, 0, 0, 0.5);
@@ -173,7 +173,7 @@
         
         .instructions {
             position: absolute;
-            bottom: 20px;
+            bottom: 90px;
             left: 20px;
             color: white;
             background: rgba(0, 0, 0, 0.5);
@@ -182,6 +182,29 @@
             font-size: 14px;
             z-index: 10;
             max-width: 300px;
+        }
+        
+        /* Audio Visualizer Styles */
+        #visualizer-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding: 20px 10px;
+            z-index: 5;
+            display: none;
+        }
+        
+        .bar {
+            width: 8px;
+            margin: 0 2px;
+            background: linear-gradient(to top, #ff3388, #ff33cc, #8833ff, #3388ff);
+            border-radius: 4px 4px 0 0;
+            transition: height 0.1s ease;
         }
     </style>
 </head>
@@ -204,6 +227,9 @@
         <!-- Snowflakes Container -->
         <div id="snowflakes"></div>
         
+        <!-- Audio Visualizer -->
+        <div id="visualizer-container"></div>
+        
         <!-- Audio controls -->
         <div id="audioControls">
             <span id="volumeIcon">🔊</span>
@@ -223,6 +249,7 @@
         const landingPage = document.getElementById("landing-page");
         const audioControls = document.getElementById("audioControls");
         const volumeIcon = document.getElementById("volumeIcon");
+        const visualizerContainer = document.getElementById("visualizer-container");
         
         // Background images
         const initialBackground = 'https://hamqadam.com/wp-content/uploads/2025/08/Aga-Khan-4.jpg';
@@ -254,6 +281,11 @@
         backgroundAudio.volume = 0.7; // Set initial volume to 70%
         
         let isMuted = false;
+        let audioContext;
+        let analyser;
+        let dataArray;
+        let bars = [];
+        let animationId;
 
         // Mute button functionality
         audioControls.addEventListener("click", () => {
@@ -262,11 +294,65 @@
             volumeIcon.textContent = isMuted ? "🔇" : "🔊";
         });
 
+        // Setup audio visualizer
+        function setupVisualizer() {
+            // Create audio context
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            analyser = audioContext.createAnalyser();
+            analyser.fftSize = 256;
+            
+            const source = audioContext.createMediaElementSource(backgroundAudio);
+            source.connect(analyser);
+            analyser.connect(audioContext.destination);
+            
+            dataArray = new Uint8Array(analyser.frequencyBinCount);
+            
+            // Create visualizer bars
+            visualizerContainer.innerHTML = '';
+            const barCount = 50;
+            for (let i = 0; i < barCount; i++) {
+                const bar = document.createElement('div');
+                bar.className = 'bar';
+                bar.style.height = '5px';
+                visualizerContainer.appendChild(bar);
+                bars.push(bar);
+            }
+            
+            visualizerContainer.style.display = 'flex';
+        }
+
+        // Animate visualizer bars based on audio data
+        function animateVisualizer() {
+            if (!analyser) return;
+            
+            analyser.getByteFrequencyData(dataArray);
+            
+            for (let i = 0; i < bars.length; i++) {
+                // Use different frequency data for different bars
+                const value = dataArray[i * Math.floor(dataArray.length / bars.length)] / 255;
+                const height = value * 70; // Max height 70px
+                bars[i].style.height = `${height}px`;
+                
+                // Add color variation based on frequency
+                const hue = (i / bars.length) * 360;
+                bars[i].style.background = `linear-gradient(to top, 
+                    hsl(${hue}, 100%, 50%), 
+                    hsl(${(hue + 60) % 360}, 100%, 50%),
+                    hsl(${(hue + 120) % 360}, 100%, 50%))`;
+            }
+            
+            animationId = requestAnimationFrame(animateVisualizer);
+        }
+
         launchBtn.addEventListener("click", () => {
             // Start audio immediately on button click
             backgroundAudio.play().catch(e => {
                 console.log("Audio play failed:", e);
             });
+            
+            // Setup and start visualizer
+            setupVisualizer();
+            animateVisualizer();
             
             let counter = 5;
             btnText.textContent = counter;

@@ -184,6 +184,33 @@
             max-width: 300px;
         }
         
+        /* YouTube Icon Styles */
+        #youtubeLink {
+            position: absolute;
+            bottom: 90px;
+            right: 80px;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+        
+        #youtubeLink:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+        
+        #youtubeIcon {
+            font-size: 24px;
+            color: white;
+        }
+        
         /* Audio Visualizer Styles */
         #visualizer-container {
             position: absolute;
@@ -231,13 +258,18 @@
         <!-- Audio Visualizer -->
         <div id="visualizer-container"></div>
         
+        <!-- YouTube Link -->
+        <a id="youtubeLink" href="https://www.youtube.com/@digicellinternational" target="_blank">
+            <span id="youtubeIcon">▶️</span>
+        </a>
+        
         <!-- Audio controls -->
         <div id="audioControls">
             <span id="volumeIcon">🔊</span>
         </div>
         
         <div class="instructions">
-            <p>Click the Play Ginan button to start audio & Press 🔊 in the left cornor to stop the audio.</p>
+            <p>Click the Play Ginan button to start audio & Press 🔊 to stop the audio.</p>
         </div>
     </div>
 

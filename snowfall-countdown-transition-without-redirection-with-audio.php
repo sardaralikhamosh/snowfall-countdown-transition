@@ -181,7 +181,7 @@
             border-radius: 8px;
             font-size: 14px;
             z-index: 10;
-            max-width: 300px;
+            max-width: 205px;
         }
         
         /* YouTube Icon Styles */
@@ -269,7 +269,7 @@
         </div>
         
         <div class="instructions">
-            <p>Click the Play Ginan button to start audio & Press 🔊 to stop the audio.</p>
+            <p>Press 🔊 to stop the audio.</p>
         </div>
     </div>
 
